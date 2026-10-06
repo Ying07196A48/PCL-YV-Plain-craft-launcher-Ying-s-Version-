@@ -1,0 +1,86 @@
+<local:MyPageRight x:Class="PageOtherTest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:PCL"
+    PanScroll="PanBack">
+    <local:MyScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" x:Name="PanBack">
+        <StackPanel x:Name="PanMain" Margin="25,10">
+
+            <!-- 实用工具卡片 -->
+            <local:MyCard Margin="0,15" Title="实用工具" x:Name="CardTools">
+                <StackPanel Margin="25,40,25,17">
+                    <WrapPanel>
+                        <!-- 清理垃圾 -->
+                        <StackPanel Margin="0,0,40,20">
+                            <TextBlock Text="清理垃圾" FontSize="13" Margin="0,0,0,8" />
+                            <local:MyButton x:Name="BtnClear" Text="开始清理" MinWidth="120" Padding="13,0" Height="32" ColorType="Highlight" />
+                        </StackPanel>
+                        <!-- 内存优化 -->
+                        <StackPanel Margin="0,0,40,20">
+                            <TextBlock Text="内存优化" FontSize="13" Margin="0,0,0,8" />
+                            <local:MyButton x:Name="BtnMemoryOptimize" Text="开始优化" MinWidth="120" Padding="13,0" Height="32" ColorType="Highlight" />
+                        </StackPanel>
+                        <!-- Mod 冲突检测 -->
+                        <StackPanel Margin="0,0,40,20">
+                            <TextBlock Text="Mod 冲突检测" FontSize="13" Margin="0,0,0,8" />
+                            <local:MyButton x:Name="BtnModConflict" Text="扫描冲突" MinWidth="120" Padding="13,0" Height="32" ColorType="Highlight" />
+                        </StackPanel>
+                        <!-- 游戏日志 -->
+                        <StackPanel Margin="0,0,40,20">
+                            <TextBlock Text="游戏日志" FontSize="13" Margin="0,0,0,8" />
+                            <local:MyButton x:Name="BtnLogViewer" Text="打开日志" MinWidth="120" Padding="13,0" Height="32" ColorType="Highlight" />
+                        </StackPanel>
+                        <!-- 启动诊断 -->
+                        <StackPanel Margin="0,0,40,20">
+                            <TextBlock Text="启动诊断" FontSize="13" Margin="0,0,0,8" />
+                            <local:MyButton x:Name="BtnDiag" Text="智能诊断" MinWidth="120" Padding="13,0" Height="32" ColorType="Highlight" />
+                        </StackPanel>
+                        <!-- Mod 去重 -->
+                        <StackPanel Margin="0,0,0,20">
+                            <TextBlock Text="Mod 去重" FontSize="13" Margin="0,0,0,8" />
+                            <local:MyButton x:Name="BtnModDedup" Text="开始去重" MinWidth="120" Padding="13,0" Height="32" ColorType="Highlight" />
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+            </local:MyCard>
+
+            <!-- 自定义下载卡片 -->
+            <local:MyCard Margin="0,0,0,15" Title="自定义下载" x:Name="CardDownload">
+                <Grid Margin="25,40,25,17">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Name1" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="下载链接" Margin="0,0,20,0" />
+                            <local:MyTextBox x:Name="TextDownloadUrl" Grid.Column="1" Margin="0,0,0,10" />
+                            <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="保存位置" Margin="0,10,20,0" />
+                            <local:MyTextBox x:Name="TextDownloadFolder" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" />
+                            <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Text="文件名" Margin="0,10,20,0" />
+                            <local:MyTextBox x:Name="TextDownloadName" Grid.Row="2" Grid.Column="1" Margin="0,10,0,0" />
+                        </Grid>
+                        <Grid Margin="0,15,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <local:MyButton x:Name="BtnDownloadStart" Grid.Column="0" Width="140" Text="开始下载"
+                                            ColorType="Highlight" Margin="0,0,15,0" HorizontalAlignment="Right" Height="32" />
+                            <local:MyButton x:Name="BtnDownloadOpen" Grid.Column="1" Width="140" Text="打开文件夹"
+                                            Margin="0,0,15,0" HorizontalAlignment="Left" Height="32" />
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </local:MyCard>
+
+        </StackPanel>
+    </local:MyScrollViewer>
+</local:MyPageRight>

@@ -1,0 +1,28 @@
+<local:MyPageRight
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:PCL" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" x:Class="PageExtensions"
+             PanScroll="MainScrollViewer">
+    <local:MyScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" x:Name="MainScrollViewer">
+        <StackPanel x:Name="PanMain" Margin="25,10">
+
+            <!-- 顶部操作栏 -->
+            <Grid Margin="0,5">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="拓展" FontSize="20" FontWeight="Light" VerticalAlignment="Center" />
+                    <TextBlock Text="管理你的常用工具、游戏和网页链接" FontSize="13"
+                               Foreground="{StaticResource ColorBrushGray3}" Margin="15,0,0,0" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <local:MyButton x:Name="BtnAddUrl" Text="添加网页链接" MinWidth="110" Padding="13,0" Height="32" Margin="0,0,12,0" ColorType="Highlight" />
+                    <local:MyButton x:Name="BtnAddFile" Text="添加本地文件" MinWidth="110" Padding="13,0" Height="32" />
+                </StackPanel>
+            </Grid>
+
+            <!-- 列表 -->
+            <StackPanel x:Name="PanItems" Margin="0,15,0,0" />
+
+        </StackPanel>
+    </local:MyScrollViewer>
+</local:MyPageRight>

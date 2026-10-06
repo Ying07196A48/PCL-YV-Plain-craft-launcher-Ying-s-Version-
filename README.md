@@ -9,8 +9,6 @@
 ## 简介
 
 PCL YV 是对 PCL2（龙腾猫跃开发的 Minecraft 启动器）的个人二改版，在原版基础上做了自定义调整与功能改动。
-
-| | |
 |---|---|
 | **原作者** | 龙腾猫跃（[B站](https://space.bilibili.com/11343203) · [爱发电](https://meloong.com/afd/a/LTCat)） |
 | **原仓库** | <https://github.com/Meloong-Git/PCL> |

@@ -409,6 +409,12 @@ Public Class FormMain
                         EndProgram(False)
                 End Select
             End If
+            '非官方版本提示
+            MyMsgBox("你正在使用的是 PCL YV（非官方修改版本）。" & vbCrLf & vbCrLf &
+                     "本版本基于 PCL 二次修改，不代表原作者龙腾猫跃。" & vbCrLf &
+                     "如果你喜欢 PCL，请支持官方版本：" & vbCrLf &
+                     "https://github.com/Meloong-Git/PCL",
+                     "非官方版本提示", "我知道了", IsWarn:=True, ForceWait:=True)
             '启动加载器池
             Try
                 JavaInit() '延后到同意协议后再执行，避免在初次启动时进行进程操作
@@ -1353,6 +1359,7 @@ Public Class FormMain
         OtherAbout = 1
         OtherTest = 2
         OtherMulti = 3
+        OtherCrawler = 4
         InstanceOverall = 0
         InstanceSetup = 1
         InstanceMod = 2

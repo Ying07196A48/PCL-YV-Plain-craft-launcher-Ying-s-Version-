@@ -7,6 +7,8 @@
                           LogoScale="0.97" Logo="M511 995a128 128 0 0 1-57-13L70 791a126 126 0 0 1-70-113V311a126 126 0 0 1 15-60V248c1-2 3-5 5-8a127 127 0 0 1 49-42L454 13a128 128 0 0 1 112 0l383 190a126 126 0 0 1 72 113v360a126 126 0 0 1-70 115L568 984c-17 7-37 11-57 11z m42-470v370l360-178c14-7 23-21 23-38v-335L554 524zM85 330v347a42 42 0 0 0 23 38l360 178V523L85 330zM135 260l375 189 137-65L286 188 135 260z m245-118l363 197 150-71-365-180a42 42 0 0 0-37 0l-111 53z" />
         <local:MyListItem x:Name="ItemMulti" IsScaleAnimationEnabled="False" Type="RadioBox" Tag="2" MinPaddingRight="35" Height="36" VerticalAlignment="Top" Title="多开"
                           LogoScale="0.97" Logo="M3,3 L15,3 L15,15 L3,15 Z M8,8 L21,8 L21,21 L8,21 Z" />
+        <local:MyListItem x:Name="ItemCrawler" IsScaleAnimationEnabled="False" Type="RadioBox" Tag="4" MinPaddingRight="35" Height="36" VerticalAlignment="Top" Title="爬虫"
+                          LogoScale="0.97" Logo="M5,5 L19,5 L19,19 L5,19 Z M8,8 L16,8 L16,16 L8,16 Z" />
         <local:MyListItem x:Name="ItemExtensions" IsScaleAnimationEnabled="False" Type="RadioBox" Tag="1" MinPaddingRight="35" Height="36" VerticalAlignment="Top" Title="拓展"
                           LogoScale="0.97" Logo="M3,5 L21,5 L21,7 L3,7 Z M3,11 L21,11 L21,13 L3,13 Z M3,17 L21,17 L21,19 L3,19 Z" />
     </StackPanel>

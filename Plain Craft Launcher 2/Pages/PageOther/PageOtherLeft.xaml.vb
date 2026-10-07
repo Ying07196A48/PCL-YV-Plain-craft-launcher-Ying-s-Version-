@@ -20,13 +20,15 @@ Public Class PageOtherLeft
         PageID = FormMain.PageSubType.OtherTest
     End Sub
 
-    Private Sub PageCheck(sender As FrameworkElement, e As RouteEventArgs) Handles ItemTest.Check, ItemExtensions.Check, ItemMulti.Check
+    Private Sub PageCheck(sender As FrameworkElement, e As RouteEventArgs) Handles ItemTest.Check, ItemExtensions.Check, ItemMulti.Check, ItemCrawler.Check
         If sender.Tag Is Nothing Then Return
         Dim Tag As Integer = Val(sender.Tag)
         If Tag = 0 Then
             PageChange(FormMain.PageSubType.OtherTest)
         ElseIf Tag = 2 Then
             PageChange(FormMain.PageSubType.OtherMulti)
+        ElseIf Tag = 4 Then
+            PageChange(FormMain.PageSubType.OtherCrawler)
         Else
             If FrmExtensionsMain Is Nothing Then FrmExtensionsMain = New PageExtensions
             PageChangeRun(FrmExtensionsMain)
@@ -43,6 +45,9 @@ Public Class PageOtherLeft
             Case FormMain.PageSubType.OtherMulti
                 If FrmOtherMulti Is Nothing Then FrmOtherMulti = New PageMulti
                 Return FrmOtherMulti
+            Case FormMain.PageSubType.OtherCrawler
+                If FrmOtherCrawler Is Nothing Then FrmOtherCrawler = New PageOtherCrawler
+                Return FrmOtherCrawler
             Case Else
                 If FrmExtensionsMain Is Nothing Then FrmExtensionsMain = New PageExtensions
                 Return FrmExtensionsMain

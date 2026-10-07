@@ -346,6 +346,9 @@
     <Compile Include="Pages\PageOther\PageOtherTest.xaml.vb">
       <DependentUpon>PageOtherTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageOther\PageOtherCrawler.xaml.vb">
+      <DependentUpon>PageOtherCrawler.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageOther\PageMulti.xaml.vb">
       <DependentUpon>PageMulti.xaml</DependentUpon>
     </Compile>
@@ -600,6 +603,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageOther\PageOtherTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageOther\PageOtherCrawler.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

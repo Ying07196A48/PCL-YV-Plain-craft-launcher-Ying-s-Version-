@@ -95,7 +95,7 @@
                     <Border Background="#DDDDDDDD" Margin="-8,23,-5,28" CornerRadius="4" Name="PanLauncherHide" Visibility="Collapsed">
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock Text="如果可以小小赞助一下 PCL，就能解锁主题颜色更换功能啦……&#xa;多亏了大家的支持，PCL 才能在免费、无任何广告的情况下维持数年的更新（磕头）！" FontSize="13" Margin="0,0,0,0" />
-                            <local:MyButton Height="32" MinWidth="140" Text="支持 PCL YV 开发！" Padding="13,0" HorizontalAlignment="Center" Margin="0,9,0,0" ColorType="Highlight"
+                            <local:MyButton Height="32" MinWidth="140" Text="支持 PCL 开发！" Padding="13,0" HorizontalAlignment="Center" Margin="0,9,0,0" ColorType="Highlight"
                                             local:CustomEventService.EventType="打开网页" local:CustomEventService.EventData="https://meloong.com/afd/a/LTCat" />
                         </StackPanel>
                     </Border>

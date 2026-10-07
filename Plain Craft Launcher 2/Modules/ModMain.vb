@@ -399,7 +399,6 @@ EndHint:
     Public FrmOtherHelp As PageOtherHelp
     Public FrmOtherAbout As PageOtherAbout
     Public FrmOtherTest As PageOtherTest
-    Public FrmOtherCrawler As PageOtherCrawler
     Public FrmOtherMulti As PageMulti
 
     '拓展页面声明

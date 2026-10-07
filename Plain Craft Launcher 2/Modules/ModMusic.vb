@@ -1,4 +1,4 @@
-Imports NAudio.Wave
+﻿Imports NAudio.Wave
 
 Public Module ModMusic
 
@@ -317,7 +317,7 @@ Public Module ModMusic
                 Thread.Sleep(1000000000)
             End If
             If TypeOf ex Is NAudio.MmException AndAlso (ex.Message.Contains("NoDriver") OrElse ex.Message.Contains("BadDeviceId")) Then
-                Hint("由于音频设备变更，音乐播放功能在重启 PCL 后才能恢复！", HintType.Red)
+                Hint("由于音频设备变更，音乐播放功能在重启 PCL YV 后才能恢复！", HintType.Red)
                 Thread.Sleep(1000000000)
             End If
             If Not (MusicCurrent.EndsWithF(".wav", True) OrElse MusicCurrent.EndsWithF(".mp3", True) OrElse MusicCurrent.EndsWithF(".flac", True)) OrElse

@@ -1,4 +1,4 @@
-Imports System.Reflection
+﻿Imports System.Reflection
 Imports System.Resources
 Imports System.Runtime.InteropServices
 
@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 '查看程序集特性的值
 
-<Assembly: AssemblyTitle("Plain Craft Launcher 启动器")>
-<Assembly: AssemblyDescription("Minecraft 启动器")>
+<Assembly: AssemblyTitle("Plain Craft Launcher Ying's Version")>
+<Assembly: AssemblyDescription("PCL YV - Plain Craft Launcher Ying's Version, based on PCL2 by 龙腾猫跃")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("Plain Craft Launcher")>
-<Assembly: AssemblyCopyright("Copyright © 成都瓜皮龙科技有限公司")>
+<Assembly: AssemblyProduct("PCL YV")>
+<Assembly: AssemblyCopyright("Based on PCL2 by 龙腾猫跃. PCL YV by Ying.")>
 <Assembly: AssemblyConfiguration("PCL2 Config Mark")>
 <Assembly: ComVisible(False)>
 

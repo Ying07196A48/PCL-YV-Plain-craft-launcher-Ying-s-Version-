@@ -1,4 +1,4 @@
-Public Module ModMinecraft
+﻿Public Module ModMinecraft
 
 #Region "文件夹"
 
@@ -71,7 +71,7 @@ Public Module ModMinecraft
                     End If
                 Next
             Catch ex As Exception
-                Logger.Warn(ex, "扫描 PCL 所在文件夹中是否有 MC 文件夹失败")
+                Logger.Warn(ex, "扫描 PCL YV 所在文件夹中是否有 MC 文件夹失败")
             End Try
 
             '扫描官启文件夹
@@ -441,7 +441,7 @@ Public Module ModMinecraft
                     End If
                     '无法获取
                     _Version.VanillaName = "Unknown"
-                    Info = "PCL 无法识别该版本的 MC 版本号"
+                    Info = "PCL YV 无法识别该版本的 MC 版本号"
                 Catch ex As Exception
                     Logger.Warn(ex, "识别 Minecraft 版本时出错")
                     _Version.VanillaName = "Unknown"

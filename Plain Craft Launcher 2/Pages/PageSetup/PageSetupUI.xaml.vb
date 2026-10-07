@@ -35,7 +35,7 @@
         If BuildType = BuildTypes.Release Then PanLauncherHide.Visibility = Visibility.Visible
 
         '设置解锁
-        If Not RadioLauncherTheme8.IsEnabled Then LabLauncherTheme8Copy.ToolTip = $"累积赞助达到 ¥23.33 后，在爱发电私信发送【土豆 {Identify}】以解锁。" & vbCrLf & "右键打开赞助页面，如果觉得 PCL 做得还不错就支持一下吧 =w=！"
+        If Not RadioLauncherTheme8.IsEnabled Then LabLauncherTheme8Copy.ToolTip = $"累积赞助达到 ¥23.33 后，在爱发电私信发送【土豆 {Identify}】以解锁。" & vbCrLf & "右键打开赞助页面，如果觉得 PCL YV 做得还不错就支持一下吧 =w=！"
         RadioLauncherTheme8.ToolTip = $"累积赞助达到 ¥23.33 后，在爱发电私信发送【土豆 {Identify}】以解锁"
         If Not RadioLauncherTheme9.IsEnabled Then LabLauncherTheme9Copy.ToolTip = "· 反馈一个 Bug，在标记为 [完成] 后回复识别码要求解锁（右键打开反馈页面）" & vbCrLf & "· 提交一个 Pull Request 或主页预设，在标记为 [完成] 后回复识别码要求解锁"
         RadioLauncherTheme9.ToolTip = "· 反馈一个 Bug，在标记为 [完成] 后回复识别码要求解锁" & vbCrLf & "· 提交一个 Pull Request 或主页预设，在标记为 [完成] 后回复识别码要求解锁"
@@ -122,7 +122,7 @@
                         Dim Path As String = WallpaperPath.ToString()
                         If Path <> "" AndAlso File.Exists(Path) Then
                             If Refresh Then
-                                Logger.Info($"使用系统壁纸作为 PCL 背景：{Path}")
+                                Logger.Info($"使用系统壁纸作为 PCL YV 背景：{Path}")
                                 FrmMain.ImgBack.Background = New MyBitmap(Path)
                                 FrmMain.ImgBack.Visibility = Visibility.Visible
                                 FrmMain.UpdateBackgroundAndTitleBar()
@@ -326,12 +326,12 @@ Refresh:
         Hint("已刷新主页！", HintType.Green)
     End Sub
     Private Sub BtnCustomTutorial_Click(sender As Object, e As EventArgs) Handles BtnCustomTutorial.Click
-        MyMsgBox("1. 点击 生成教学文件 按钮，这会在 PCL 文件夹下生成 Custom.xaml 布局文件。" & vbCrLf &
+        MyMsgBox("1. 点击 生成教学文件 按钮，这会在 PCL YV 文件夹下生成 Custom.xaml 布局文件。" & vbCrLf &
                  "2. 使用记事本等工具打开这个文件并进行修改，修改完记得保存。" & vbCrLf &
                  "3. 点击 刷新主页 按钮，查看主页现在长啥样了。" & vbCrLf &
                  vbCrLf &
                  "你可以在生成教学文件后直接刷新主页，对照着进行修改，更有助于理解。" & vbCrLf &
-                 "直接将主页文件拖进 PCL 窗口也可以快捷加载。", "主页自定义教程")
+                 "直接将主页文件拖进 PCL YV 窗口也可以快捷加载。", "主页自定义教程")
     End Sub
     Private Sub BtnCustomOpen_Click(sender As Object, e As EventArgs) Handles BtnCustomOpen.Click
         Try
@@ -340,7 +340,7 @@ Refresh:
                 OpenExplorer(CustomPath)
             Else
                 OpenExplorer(Paths.Base & "PCL\")
-                Hint("未找到 Custom.xaml，已打开 PCL 文件夹。", HintType.Blue)
+                Hint("未找到 Custom.xaml，已打开 PCL YV 文件夹。", HintType.Blue)
             End If
         Catch ex As Exception
             Logger.Error(ex, "打开主页文件失败")
@@ -361,7 +361,7 @@ Refresh:
                 FrmSetupUI.PanCustomNet.Visibility = Visibility.Collapsed
                 FrmSetupUI.HintCustom.Visibility = Visibility.Visible
                 FrmSetupUI.HintCustomWarn.Visibility = If(Settings.Get(Of Boolean)("HintCustomWarn"), Visibility.Collapsed, Visibility.Visible)
-                FrmSetupUI.HintCustom.Text = $"从 PCL 文件夹下的 Custom.xaml 读取主页内容。{vbCrLf}你可以手动编辑该文件，向主页添加文本、图片、常用网站、快捷启动等功能。"
+                FrmSetupUI.HintCustom.Text = $"从 PCL YV 文件夹下的 Custom.xaml 读取主页内容。{vbCrLf}你可以手动编辑该文件，向主页添加文本、图片、常用网站、快捷启动等功能。"
                 CustomEventService.SetEventType(FrmSetupUI.HintCustom, CustomEvent.EventType.None)
             Case 2 '联网
                 FrmSetupUI.PanCustomPreset.Visibility = Visibility.Collapsed

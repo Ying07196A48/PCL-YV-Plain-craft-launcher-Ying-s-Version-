@@ -1,4 +1,4 @@
-Public Class PageSetupLaunch
+﻿Public Class PageSetupLaunch
 
     Private Sub PageSetupLaunch_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         '重复加载部分
@@ -378,7 +378,7 @@ PreFin:
                     .FontSize = 13, .Height = 24, .IsScaleAnimationEnabled = False, .Type = MyListItem.CheckType.Clickable,
                     .Tag = JavaEntry, .Title = JavaEntry.ToString}
                 AddHandler JavaItem.MouseLeftButtonUp, Sub(sender As Object, e As MouseButtonEventArgs) e.Handled = True
-                AddHandler JavaItem.Click, Sub() Hint("点击选项右侧的箭头可以进行排序，以控制 PCL 优先选择哪个 Java！")
+                AddHandler JavaItem.Click, Sub() Hint("点击选项右侧的箭头可以进行排序，以控制 PCL YV 优先选择哪个 Java！")
                 ComboAdvanceJava.Items.Add(JavaItem)
                 Dim Buttons As New List(Of MyIconButton)
                 '向上移动按钮

@@ -1,4 +1,4 @@
-Imports System.Runtime.CompilerServices
+﻿Imports System.Runtime.CompilerServices
 Imports System.Xaml
 
 Public Module ModBase
@@ -43,7 +43,7 @@ Public Module ModBase
     ''' <summary>
     ''' 程序内嵌图片文件夹路径，以 / 结尾。
     ''' </summary>
-    Public PathImage As String = "pack://application:,,,/Plain Craft Launcher 2;component/Images/"
+    Public PathImage As String = "pack://application:,,,/PCL YV;component/Images/"
     ''' <summary>
     ''' 程序的缓存文件夹路径，以 \ 结尾。
     ''' </summary>
@@ -583,7 +583,7 @@ Public Module ModBase
             FileUtils.Delete(TestFilePath)
             Return True
         Catch ex As Exception
-            Logger.Warn(ex, $"没有对文件夹 {Folder} 的权限，请尝试以管理员权限运行 PCL")
+            Logger.Warn(ex, $"没有对文件夹 {Folder} 的权限，请尝试以管理员权限运行 PCL YV")
             Return False
         End Try
     End Function

@@ -1,4 +1,4 @@
-<local:MyPageRight
+﻿<local:MyPageRight
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:PCL" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -56,7 +56,7 @@
                             </Grid.ColumnDefinitions>
                             <local:MyComboBox x:Name="ComboArgumentJava" local:SettingService.Key="VersionArgumentJavaV2">
                                 <local:MyComboBoxItem Content="自动选择"
-                                                  ToolTip="由 PCL 自动分析需要的 Java 版本，如果没有合适的 Java 则自动下载。" />
+                                                  ToolTip="由 PCL YV 自动分析需要的 Java 版本，如果没有合适的 Java 则自动下载。" />
                                 <local:MyComboBoxItem Content="自动选择指定版本的 Java" 
                                                   ToolTip="手动输入一个 Java 版本范围，PCL 将选择符合该范围的 Java，如果没有合适的 Java 则自动下载。&#xa;适合部分 Mod 需要特定 Java 版本才能启动的情况。" />
                                 <local:MyComboBoxItem Content="使用版本文件夹中的 Java"
@@ -238,17 +238,17 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Java 虚拟机参数" Margin="0,0,25,0" />
-                    <local:MyTextBox x:Name="TextAdvanceJvm" Grid.Row="0" Grid.ColumnSpan="2" local:SettingService.Key="VersionAdvanceJvm" Grid.Column="1" MaxLength="4000" ToolTip="启动 Minecraft 时使用的额外 JVM 参数，在没有确定把握的情况下请不要尝试修改。&#xa;&#xa;支持 Minecraft 版本 JSON 中的字符串替换标记，例如 ${library_directory}。&#xa;也支持使用 PCL 的替换标记，在 更多 → 帮助 中搜索 “替换标记” 以了解用法。&#xa;&#xa;若留空，则跟随全局设置的值。" HintText="跟随全局设置"
+                    <local:MyTextBox x:Name="TextAdvanceJvm" Grid.Row="0" Grid.ColumnSpan="2" local:SettingService.Key="VersionAdvanceJvm" Grid.Column="1" MaxLength="4000" ToolTip="启动 Minecraft 时使用的额外 JVM 参数，在没有确定把握的情况下请不要尝试修改。&#xa;&#xa;支持 Minecraft 版本 JSON 中的字符串替换标记，例如 ${library_directory}。&#xa;也支持使用 PCL YV 的替换标记，在 更多 → 帮助 中搜索 “替换标记” 以了解用法。&#xa;&#xa;若留空，则跟随全局设置的值。" HintText="跟随全局设置"
                                      Height="100" AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top" Padding="0,5" VerticalScrollBarVisibility="Auto" />
                     <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Text="游戏参数" Margin="0,0,25,0" />
-                    <local:MyTextBox x:Name="TextAdvanceGame" Grid.Row="2" Grid.ColumnSpan="2" local:SettingService.Key="VersionAdvanceGame" Grid.Column="1" ToolTip="文本框中的内容将会被直接拼合在启动参数的末尾。&#xa;例如，输入 --demo 则会以试玩模式启动游戏。&#xa;&#xa;支持 Minecraft 版本 JSON 中的字符串替换标记，例如 ${library_directory}。&#xa;也支持使用 PCL 的替换标记，在 更多 → 帮助 中搜索 “替换标记” 以了解用法。&#xa;&#xa;若留空，则跟随全局设置的值。" HintText="跟随全局设置" />
+                    <local:MyTextBox x:Name="TextAdvanceGame" Grid.Row="2" Grid.ColumnSpan="2" local:SettingService.Key="VersionAdvanceGame" Grid.Column="1" ToolTip="文本框中的内容将会被直接拼合在启动参数的末尾。&#xa;例如，输入 --demo 则会以试玩模式启动游戏。&#xa;&#xa;支持 Minecraft 版本 JSON 中的字符串替换标记，例如 ${library_directory}。&#xa;也支持使用 PCL YV 的替换标记，在 更多 → 帮助 中搜索 “替换标记” 以了解用法。&#xa;&#xa;若留空，则跟随全局设置的值。" HintText="跟随全局设置" />
                     <TextBlock VerticalAlignment="Center" Grid.Row="4" HorizontalAlignment="Left" Text="内存管理" Margin="0,0,25,0" />
                     <local:MyComboBox local:SettingService.Key="VersionAdvanceGC" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="1">
                         <local:MyComboBoxItem Content="跟随全局设置" />
                         <local:MyComboBoxItem Content="尽量使用 ZGC" ToolTip="在 Java 21+ 使用分代 ZGC，20~15 使用非分代的 ZGC，14- 使用 G1GC。&#xa;ZGC 的内存占用比 G1GC 更高，不过在回收内存时不会导致卡顿。&#xa;覆盖 “Java 虚拟机参数” 设置中的 GC 相关参数。" />
                         <local:MyComboBoxItem Content="尽量使用分代 ZGC" ToolTip="在 Java 21+ 使用分代 ZGC，20- 使用 G1GC。&#xa;ZGC 的内存占用比 G1GC 更高，不过在回收内存时不会导致卡顿。&#xa;覆盖 “Java 虚拟机参数” 设置中的 GC 相关参数。" />
                         <local:MyComboBoxItem Content="标准 G1GC" ToolTip="总是使用 G1GC，附带 Mojang 官方的优化参数。&#xa;G1GC 的内存占用比 ZGC 更低，但在回收内存时会导致突然的卡顿。&#xa;覆盖 “Java 虚拟机参数” 设置中的 GC 相关参数。" />
-                        <local:MyComboBoxItem Content="调优 G1GC" local:SettingService.Value="5" ToolTip="总是使用 G1GC，附带 PCL 调优过的优化参数。&#xa;G1GC 的内存占用比 ZGC 更低，但在回收内存时会导致突然的卡顿。&#xa;覆盖 “Java 虚拟机参数” 设置中的 GC 相关参数。" />
+                        <local:MyComboBoxItem Content="调优 G1GC" local:SettingService.Value="5" ToolTip="总是使用 G1GC，附带 PCL YV 调优过的优化参数。&#xa;G1GC 的内存占用比 ZGC 更低，但在回收内存时会导致突然的卡顿。&#xa;覆盖 “Java 虚拟机参数” 设置中的 GC 相关参数。" />
                         <local:MyComboBoxItem Content="不指定（可自定义）" local:SettingService.Value="4" ToolTip="不自动添加 GC 参数。&#xa;仅当选择此项时，你可以在 “Java 虚拟机参数” 设置中手动添加 GC 参数。" />
                     </local:MyComboBox>
                     <TextBlock Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Left" Text="启动前执行命令" Margin="0,0,25,3" />

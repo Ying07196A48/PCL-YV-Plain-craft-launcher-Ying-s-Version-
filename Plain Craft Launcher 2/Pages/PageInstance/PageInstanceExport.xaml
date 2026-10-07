@@ -1,4 +1,4 @@
-<local:MyPageRight
+﻿<local:MyPageRight
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:PCL" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -262,7 +262,7 @@
                         <local:MyCheckBox x:Name="CheckOptionsPcl">
                             <local:MyCheckBox.Tag>
                                 <local:ExportOption 
-                                Title="PCL 启动器程序"
+                                Title="PCL YV 启动器程序"
                                 Description="打包正式版 PCL，以便没有启动器的玩家安装整合包"
                                 DefaultChecked="True" />
                             </local:MyCheckBox.Tag>
@@ -272,7 +272,7 @@
                             <local:MyCheckBox x:Name="CheckOptionsPclCustom">
                                 <local:MyCheckBox.Tag>
                                     <local:ExportOption 
-                                Title="PCL 个性化内容"
+                                Title="PCL YV 个性化内容"
                                 Description="功能隐藏设置、主页、背景音乐和图片等"
                                 DefaultChecked="True" />
                                 </local:MyCheckBox.Tag>

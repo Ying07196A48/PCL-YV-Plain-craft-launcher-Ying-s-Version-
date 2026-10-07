@@ -1,4 +1,4 @@
-<local:MyPageRight
+﻿<local:MyPageRight
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:PCL" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -90,12 +90,12 @@
                             <local:MyRadioBox local:SettingService.Key="UiLauncherTheme" local:SettingService.Value="14" 
                                               Grid.Column="5" Grid.Row="2" Text="自定义" x:Name="RadioLauncherTheme14" ToolTip="需要解锁五个隐藏主题" />
                         </Grid>
-                        <local:MyCheckBox local:SettingService.Key="UiLauncherLogo" Text="打开启动器时显示 PCL 图标" Margin="-1,0,0,1" Height="22" />
+                        <local:MyCheckBox local:SettingService.Key="UiLauncherLogo" Text="打开启动器时显示 PCL YV 图标" Margin="-1,0,0,1" Height="22" />
                     </StackPanel>
                     <Border Background="#DDDDDDDD" Margin="-8,23,-5,28" CornerRadius="4" Name="PanLauncherHide" Visibility="Collapsed">
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock Text="如果可以小小赞助一下 PCL，就能解锁主题颜色更换功能啦……&#xa;多亏了大家的支持，PCL 才能在免费、无任何广告的情况下维持数年的更新（磕头）！" FontSize="13" Margin="0,0,0,0" />
-                            <local:MyButton Height="32" MinWidth="140" Text="支持 PCL 开发！" Padding="13,0" HorizontalAlignment="Center" Margin="0,9,0,0" ColorType="Highlight"
+                            <local:MyButton Height="32" MinWidth="140" Text="支持 PCL YV 开发！" Padding="13,0" HorizontalAlignment="Center" Margin="0,9,0,0" ColorType="Highlight"
                                             local:CustomEventService.EventType="打开网页" local:CustomEventService.EventData="https://meloong.com/afd/a/LTCat" />
                         </StackPanel>
                     </Border>
@@ -103,8 +103,8 @@
             </local:MyCard>
             <local:MyCard x:Name="CardBackground" Margin="0,0,0,15" Title="背景图片">
                 <StackPanel Margin="25,40,25,20">
-                    <local:MyCheckBox local:SettingService.Key="UiUseSystemWallpaper" Text="使用 Windows 桌面壁纸作为背景（可间接使用 Wallpaper Engine 的壁纸）" Margin="-1,0,0,10" Height="22" ToolTip="开启后 PCL 背景直接读取 Windows 当前桌面壁纸。若 Wallpaper Engine 使用图片壁纸或将当前帧设为系统壁纸，PCL 背景会同步变化；动态视频壁纸无法实时跟随。" />
-                    <local:MyCheckBox local:SettingService.Key="UiUseWebackground" Text="实时截取桌面壁纸作为背景（Wallpaper Engine 动态跟随）" Margin="-1,0,0,10" Height="22" ToolTip="开启后每 1.5 秒截取一次桌面窗口（Progman）作为 PCL 背景，可实时跟随 Wallpaper Engine 的动态壁纸。注意：此功能会占用少量 CPU。" />
+                    <local:MyCheckBox local:SettingService.Key="UiUseSystemWallpaper" Text="使用 Windows 桌面壁纸作为背景（可间接使用 Wallpaper Engine 的壁纸）" Margin="-1,0,0,10" Height="22" ToolTip="开启后 PCL YV 背景直接读取 Windows 当前桌面壁纸。若 Wallpaper Engine 使用图片壁纸或将当前帧设为系统壁纸，PCL 背景会同步变化；动态视频壁纸无法实时跟随。" />
+                    <local:MyCheckBox local:SettingService.Key="UiUseWebackground" Text="实时截取桌面壁纸作为背景（Wallpaper Engine 动态跟随）" Margin="-1,0,0,10" Height="22" ToolTip="开启后每 1.5 秒截取一次桌面窗口（Progman）作为 PCL YV 背景，可实时跟随 Wallpaper Engine 的动态壁纸。注意：此功能会占用少量 CPU。" />
                     <Grid x:Name="PanBackgroundSuit" Height="28" Margin="0,0,0,10" Visibility="Collapsed">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" SharedSizeGroup="Name" />
@@ -142,7 +142,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="背景模糊" Margin="0,0,25,0" />
                         <local:MySlider local:SettingService.Key="UiBackgroundBlur" x:Name="SliderBackgroundBlur" MaxValue="40" Grid.Column="1" 
-                                        ToolTip="高度的模糊会严重掉帧，请谨慎。&#13;不建议在制作整合包时开启模糊，以确保 PCL 在低性能电脑上可以流畅运行。" />
+                                        ToolTip="高度的模糊会严重掉帧，请谨慎。&#13;不建议在制作整合包时开启模糊，以确保 PCL YV 在低性能电脑上可以流畅运行。" />
                     </Grid>
                     <local:MyCheckBox local:SettingService.Key="UiBackgroundColorful" Text="叠加彩色背景" Margin="-1,0,0,8" Height="22" />
                     <Grid Height="35" Margin="0,2,0,0">
@@ -279,10 +279,10 @@
                             <local:MyComboBoxItem local:SettingService.Value="6" Content="OpenBMCLAPI 仪表盘 Lite（作者：Silverteal、Mxmilu666）" />
                             <!--<local:MyComboBoxItem local:SettingService.Value="7" Content="PCL 主页市场（作者：凌云）" />-->
                             <!--<local:MyComboBoxItem local:SettingService.Value="8" Content="PCL 新闻速报（作者：Joker2184）" />-->
-                            <local:MyComboBoxItem local:SettingService.Value="9" Content="PCL 新功能说明书（作者：WForst-Breeze）" />
+                            <local:MyComboBoxItem local:SettingService.Value="9" Content="PCL YV 新功能说明书（作者：WForst-Breeze）" />
                             <!--<local:MyComboBoxItem local:SettingService.Value="10" Content="OpenMCIM 仪表盘（作者：SALTWOOD）" />-->
                             <local:MyComboBoxItem local:SettingService.Value="11" Content="杂志主页（作者：CreeperIsASpy）" />
-                            <local:MyComboBoxItem local:SettingService.Value="12" Content="PCL GitHub 仪表盘（作者：Deep-Dark-Forest）" />
+                            <local:MyComboBoxItem local:SettingService.Value="12" Content="PCL YV GitHub 仪表盘（作者：Deep-Dark-Forest）" />
                             <local:MyComboBoxItem local:SettingService.Value="13" Content="Minecraft 更新摘要（作者：pynickle）" />
                             <local:MyComboBoxItem local:SettingService.Value="14" Content="今日新闻热点（作者：EYicheng）" />
                             <local:MyComboBoxItem local:SettingService.Value="15" Content="Minecraft 芝士站（作者：awaEric233）" />

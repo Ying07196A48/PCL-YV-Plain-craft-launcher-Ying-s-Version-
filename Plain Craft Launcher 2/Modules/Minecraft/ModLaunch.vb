@@ -1,4 +1,4 @@
-Public Module ModLaunch
+﻿Public Module ModLaunch
 
     ''' <summary>
     ''' 命令行 --launch 指定的待启动实例名。主窗口加载完成后自动启动。
@@ -270,8 +270,8 @@ NextInner:
             Sub()
                 Select Case Settings.Get(Of Integer)("SystemLaunchCount")
                     Case 10, 20, 40, 60, 80, 100, 120, 150, 200, 250, 300, 350, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000
-                        If MyMsgBox("PCL 已经为你启动了 " & Settings.Get(Of Integer)("SystemLaunchCount") & " 次游戏啦！" & vbCrLf &
-                                    "如果 PCL 还算好用的话，能不能考虑赞助一下 PCL……" & vbCrLf &
+                        If MyMsgBox("PCL YV 已经为你启动了 " & Settings.Get(Of Integer)("SystemLaunchCount") & " 次游戏啦！" & vbCrLf &
+                                    "如果 PCL YV 还算好用的话，能不能考虑赞助一下 PCL……" & vbCrLf &
                                     "如果没有大家的支持，PCL 很难在免费、无任何广告的情况下维持数年的更新（磕头）……！",
                                     Settings.Get(Of Integer)("SystemLaunchCount") & " 次启动！", "支持 PCL！", "但是我拒绝") = 1 Then
                             OpenWebsite("https://meloong.com/afd/a/LTCat")
@@ -1539,7 +1539,7 @@ NextInstance:
         Yield ("${natives_directory}", GetNativesFolder().TrimEnd("\"c))
         Yield ("${library_directory}", PathUtils.ToShortPath(McFolderSelected & "libraries"))
         Yield ("${libraries_directory}", PathUtils.ToShortPath(McFolderSelected & "libraries"))
-        Yield ("${pure_directory}", PathPure.Value.TrimEnd("\"c)) '由 PCL 添加，这会允许在分割参数并去重后再替换路径，防止路径中的特殊字符影响参数分割和去重
+        Yield ("${pure_directory}", PathPure.Value.TrimEnd("\"c)) '由 PCL YV 添加，这会允许在分割参数并去重后再替换路径，防止路径中的特殊字符影响参数分割和去重
         Yield ("${launcher_name}", "PCL")
         Yield ("${launcher_version}", VersionCode)
         Yield ("${version_name}", McInstanceSelected.Name)
@@ -1781,10 +1781,10 @@ NextInstance:
                 If WindowsUtils.HasAdminRole() Then
                     Logger.Warn(ex, "直接调整显卡设置失败")
                 Else
-                    Logger.Warn(ex, "直接调整显卡设置失败，将以管理员权限重启 PCL 再次尝试")
+                    Logger.Warn(ex, "直接调整显卡设置失败，将以管理员权限重启 PCL YV 再次尝试")
                     Try
                         If RunAsAdmin($"--gpu ""{McLaunchJavaSelected.JavaExePath}""") = ProcessReturnValues.TaskDone Then
-                            McLaunchLog("以管理员权限重启 PCL 并调整显卡设置成功")
+                            McLaunchLog("以管理员权限重启 PCL YV 并调整显卡设置成功")
                         Else
                             Throw New Exception("调整过程中出现异常")
                         End If
@@ -1970,7 +1970,7 @@ NextInstance:
                 '准备文件
                 Dim Bit As New MyBitmap(PathImage & "Heads/Logo.png")
                 Bit.Save(PackPicAddress)
-                FileUtils.Write(MetaFileAddress, "{""pack"":{""pack_format"":" & PackFormat & ",""description"":""PCL 自定义离线皮肤资源包""}}")
+                FileUtils.Write(MetaFileAddress, "{""pack"":{""pack_format"":" & PackFormat & ",""description"":""PCL YV 自定义离线皮肤资源包""}}")
                 Dim Skin As New MyBitmap(Paths.AppDataThenName & "CustomSkin.png")
                 If (McInstanceSelected.Version.Vanilla.Major = 6 OrElse McInstanceSelected.Version.Vanilla.Major = 7) AndAlso Skin.Pic.Height = 64 Then
                     McLaunchLog("该 Minecraft 版本不支持双层皮肤，已进行裁剪")
@@ -2187,7 +2187,7 @@ IgnoreCustomSkin:
         '输出信息
         McLaunchLog("")
         McLaunchLog("~ 基础参数 ~")
-        McLaunchLog("PCL 版本：" & VersionDisplay & " (" & VersionCode & ")")
+        McLaunchLog("PCL YV 版本：" & VersionDisplay & " (" & VersionCode & ")")
         McLaunchLog($"游戏版本：{McInstanceSelected.VersionDisplayName}（{McInstanceSelected.Version.Vanilla}，Drop {McInstanceSelected.Version.Drop}{If(McInstanceSelected.Version.Reliable, "", "，无法完全确定")}）")
         McLaunchLog("资源版本：" & McAssetsGetIndexName(McInstanceSelected))
         McLaunchLog("版本继承：" & If(McInstanceSelected.InheritName = "", "无", McInstanceSelected.InheritName))

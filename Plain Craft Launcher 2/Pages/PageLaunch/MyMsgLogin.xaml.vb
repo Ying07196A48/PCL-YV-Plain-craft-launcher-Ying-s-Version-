@@ -1,4 +1,4 @@
-Public Class MyMsgLogin
+﻿Public Class MyMsgLogin
     Private Data As JObject
     Private UserCode As String '需要用户在网页上输入的设备代码
     Private DeviceCode As String '用于轮询的设备代码
@@ -126,7 +126,7 @@ Public Class MyMsgLogin
                 If TypeOf ex Is HttpRequestCodeException Then
                     Dim Response = CType(ex, HttpRequestCodeException).Response
                     If Response.Contains("authorization_declined") Then
-                        Finished(New Exception("$你拒绝了 PCL 申请的权限……"))
+                        Finished(New Exception("$你拒绝了 PCL YV 申请的权限……"))
                         Return
                     ElseIf Response.Contains("expired_token") Then
                         Finished(New Exception("$登录用时太长啦，重新试试吧！"))

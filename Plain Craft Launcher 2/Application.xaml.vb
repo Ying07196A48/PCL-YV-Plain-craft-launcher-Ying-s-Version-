@@ -1,4 +1,4 @@
-Imports System.Reflection
+﻿Imports System.Reflection
 Imports System.Windows.Threading
 
 Public Class Application
@@ -68,10 +68,10 @@ Public Class Application
                 DirectoryUtils.Create(Paths.Base & "PCL\Musics\")
                 CheckPermissionWithException(Paths.Base & "PCL\")
             Catch ex As Exception
-                MsgBox($"PCL 没有对当前文件夹的权限（{Paths.Base}PCL\），请尝试：" & vbCrLf &
-                  "1. 将 PCL 移动到其他文件夹" & If(Paths.Base.StartsWithF("C:", True), "，例如 C 盘和桌面以外的其他位置。", "。") & vbCrLf &
-                  "2. 删除当前目录中的 PCL 文件夹，然后再试。" & vbCrLf &
-                  "3. 右键 PCL 选择属性，打开 兼容性 中的 以管理员身份运行此程序。",
+                MsgBox($"PCL YV 没有对当前文件夹的权限（{Paths.Base}PCL\），请尝试：" & vbCrLf &
+                  "1. 将 PCL YV 移动到其他文件夹" & If(Paths.Base.StartsWithF("C:", True), "，例如 C 盘和桌面以外的其他位置。", "。") & vbCrLf &
+                  "2. 删除当前目录中的 PCL YV 文件夹，然后再试。" & vbCrLf &
+                  "3. 右键 PCL YV 选择属性，打开 兼容性 中的 以管理员身份运行此程序。",
                 MsgBoxStyle.Critical, "运行环境错误")
                 Environment.[Exit](ProcessReturnValues.Cancel)
             End Try
@@ -81,7 +81,7 @@ RetryCacheCheck:
                 CheckPermissionWithException(PathTemp)
             Catch ex As Exception
                 If PathTemp = Path.GetTempPath() & "PCL\" Then
-                    MyMsgBox("PCL 无法访问缓存文件夹，可能导致程序出错或无法正常使用！" & vbCrLf & vbCrLf & "错误原因：" & ex.GetDisplay(True), "缓存文件夹不可用")
+                    MyMsgBox("PCL YV 无法访问缓存文件夹，可能导致程序出错或无法正常使用！" & vbCrLf & vbCrLf & "错误原因：" & ex.GetDisplay(True), "缓存文件夹不可用")
                 Else
                     MyMsgBox("手动设置的缓存文件夹不可用，PCL 将使用默认缓存文件夹。" & vbCrLf & vbCrLf & "错误原因：" & ex.GetDisplay(True), "缓存文件夹不可用")
                     Settings.Set("SystemSystemCache", "")
@@ -121,11 +121,11 @@ RetryCacheCheck:
             Logger.Info($"管理员权限：{WindowsUtils.HasAdminRole()}")
             '检测异常环境
             If Paths.Base.Contains(Path.GetTempPath()) OrElse Paths.Base.Contains("AppData\Local\Temp\") Then
-                MyMsgBox("请将 PCL 从压缩包中解压后再使用！" & vbCrLf & "如果不会解压，可以在网上寻找教程。", "需要解压！", "我知道了", IsWarn:=True, ForceWait:=True)
+                MyMsgBox("请将 PCL YV 从压缩包中解压后再使用！" & vbCrLf & "如果不会解压，可以在网上寻找教程。", "需要解压！", "我知道了", IsWarn:=True, ForceWait:=True)
                 FormMain.EndProgramForce(ProcessReturnValues.Cancel)
             End If
             If Not Environment.Is64BitOperatingSystem Then
-                MyMsgBox("PCL 和新版 Minecraft 均不再支持 32 位系统，请重装为 64 位系统后再进行游戏！", "环境警告", "我知道了", IsWarn:=True, ForceWait:=True)
+                MyMsgBox("PCL YV 和新版 Minecraft 均不再支持 32 位系统，请重装为 64 位系统后再进行游戏！", "环境警告", "我知道了", IsWarn:=True, ForceWait:=True)
                 FormMain.EndProgramForce(ProcessReturnValues.Cancel)
             End If
             '计时
@@ -138,7 +138,7 @@ RetryCacheCheck:
                 FilePath = PathExe
             Catch
             End Try
-            MsgBox(ex.GetDisplay(True) & vbCrLf & "PCL 所在路径：" & If(String.IsNullOrEmpty(FilePath), "获取失败", FilePath), MsgBoxStyle.Critical, "PCL 初始化错误")
+            MsgBox(ex.GetDisplay(True) & vbCrLf & "PCL YV 所在路径：" & If(String.IsNullOrEmpty(FilePath), "获取失败", FilePath), MsgBoxStyle.Critical, "PCL YV 初始化错误")
             FormMain.EndProgramForce(ProcessReturnValues.Exception)
         End Try
     End Sub
@@ -152,7 +152,7 @@ RetryCacheCheck:
             Dim MutexCreatedNew As Boolean
             PclMutex = New Mutex(True, "PCL_SingletonMutex", MutexCreatedNew)
             If MutexCreatedNew Then Return
-            Logger.Warn("已有一个 PCL 实例正在运行")
+            Logger.Warn("已有一个 PCL YV 实例正在运行")
             '等待已有的 PCL 退出
             If e.Args.Length > 0 AndAlso e.Args(0) = "--wait" Then
                 Try
@@ -162,7 +162,8 @@ RetryCacheCheck:
                 End Try
             End If
             '将已有的 PCL 窗口拖出来
-            Dim WindowHwnd As IntPtr = FindWindow(Nothing, "Plain Craft Launcher　")
+            Dim WindowHwnd As IntPtr = FindWindow(Nothing, "PCL YV　")
+            If WindowHwnd = IntPtr.Zero Then WindowHwnd = FindWindow(Nothing, "Plain Craft Launcher　")
             If WindowHwnd = IntPtr.Zero Then WindowHwnd = FindWindow(Nothing, "Plain Craft Launcher 2　")
             If WindowHwnd <> IntPtr.Zero Then ShowWindowToTop(WindowHwnd)
             '播放提示音并退出

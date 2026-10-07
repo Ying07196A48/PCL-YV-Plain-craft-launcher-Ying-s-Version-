@@ -1,4 +1,4 @@
-<local:MyPageRight
+﻿<local:MyPageRight
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:PCL" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -38,7 +38,7 @@
                     </Grid.RowDefinitions>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="自定义节点" Margin="0,0,25,0" />
                     <local:MyTextBox x:Name="TextCustomPeer" local:SettingService.Key="LinkCustomPeer" Grid.Column="1" MaxHeight="28" 
-                        ToolTip="覆盖 PCL 所选择的节点，仅连接此处填写的节点。&#xa;如果你自己搭建了 EasyTier 节点，你可以用这个设置让 PCL 连接它。&#xa;&#xa;使用逗号分隔多个节点，例如：&#xa;tcp://public.easytier.cn:11010,tcp://public2.easytier.cn:54321&#xa;&#xa;房主和加入者必须连接到至少一个相同节点，才能互相连上。" />
+                        ToolTip="覆盖 PCL YV 所选择的节点，仅连接此处填写的节点。&#xa;如果你自己搭建了 EasyTier 节点，你可以用这个设置让 PCL YV 连接它。&#xa;&#xa;使用逗号分隔多个节点，例如：&#xa;tcp://public.easytier.cn:11010,tcp://public2.easytier.cn:54321&#xa;&#xa;房主和加入者必须连接到至少一个相同节点，才能互相连上。" />
                     <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Left">
                         <local:MyButton MinWidth="140" Padding="13,5" Margin="0,0,20,0" HorizontalAlignment="Left"
                             Text=" 光荣地贡献节点！" ColorType="Highlight"

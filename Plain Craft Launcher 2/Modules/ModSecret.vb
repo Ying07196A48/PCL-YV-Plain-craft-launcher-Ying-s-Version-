@@ -1,4 +1,4 @@
-'由于包含加解密等安全信息，本文件中的部分代码已被删除
+﻿'由于包含加解密等安全信息，本文件中的部分代码已被删除
 
 Friend Module ModSecret
 
@@ -192,7 +192,7 @@ Friend Module ModSecret
     ''' </summary>
     Public ServerConfig As JObject
 
-    Public ServerLoader As New LoaderTask(Of Integer, Integer)("PCL 配置更新", Sub() Logger.Info("该版本中不包含更新通知功能……"), Priority:=ThreadPriority.BelowNormal) With
+    Public ServerLoader As New LoaderTask(Of Integer, Integer)("PCL YV 配置更新", Sub() Logger.Info("该版本中不包含更新通知功能……"), Priority:=ThreadPriority.BelowNormal) With
         {.ReloadTimeout = 1000 * 60 * 60} '超时 1 小时
 
 #End Region

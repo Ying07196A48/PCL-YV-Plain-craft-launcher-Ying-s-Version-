@@ -350,3 +350,8 @@ build_result.txt
 ce_build*.txt
 ce_restore.txt
 最新正式版.zip
+check_*.png
+frame_*.png
+icon_yv.png
+verify_new.png
+PCL-YV-v*.zip

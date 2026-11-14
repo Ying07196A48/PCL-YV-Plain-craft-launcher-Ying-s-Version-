@@ -42,6 +42,7 @@ Public Class PageDownloadInstall
     Private Sub EnterSelectPage()
         If IsInSelectPage Then Return
         IsInSelectPage = True
+        If Not TabLoader.Checked Then TabLoader.Checked = True
 
         PanInner.Margin = New Thickness(25, 10, 25, 40)
 
@@ -121,6 +122,7 @@ Public Class PageDownloadInstall
     Public Sub ExitSelectPage() Handles BtnBack.Click
         If Not IsInSelectPage Then Return
         IsInSelectPage = False
+        If Not TabVanilla.Checked Then TabVanilla.Checked = True
 
         PanInner.Margin = New Thickness(25, 10, 25, 25)
 
@@ -151,6 +153,54 @@ Public Class PageDownloadInstall
         VanillaData = sender.Tag
         VanillaIcon = sender.Logo
         EnterSelectPage()
+    End Sub
+
+    '二级标签：原版游戏 / 加载器 · API
+    Private Sub TabVanilla_Check(sender As Object, e As RouteEventArgs) Handles TabVanilla.Check
+        If Not IsLoaded Then Return
+        PanMinecraft.Visibility = Visibility.Visible
+        PanSelect.Visibility = Visibility.Collapsed
+        PanMinecraft.IsHitTestVisible = True
+        PanSelect.IsHitTestVisible = False
+    End Sub
+    Private Sub TabLoader_Check(sender As Object, e As RouteEventArgs) Handles TabLoader.Check
+        If Not IsLoaded Then Return
+        PanMinecraft.Visibility = Visibility.Collapsed
+        PanSelect.Visibility = Visibility.Visible
+        PanSelect.Opacity = 1
+        PanMinecraft.IsHitTestVisible = False
+        PanSelect.IsHitTestVisible = True
+        PanBack.ScrollToHome()
+    End Sub
+
+    '加载器子页：选择 MC 版本后复用现有加载器列表与安装链路
+    Private Sub ComboVersion_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles ComboVersion.SelectionChanged
+        If Not IsLoaded Then Return
+        Dim Item = TryCast(ComboVersion.SelectedItem, MyComboBoxItem)
+        If Item Is Nothing OrElse Item.Tag Is Nothing Then Return
+        Dim Data As JObject = CType(Item.Tag, JObject)
+        ApplyVanillaVersion(Data("id").ToString, Data)
+    End Sub
+
+    Private Sub ApplyVanillaVersion(versionName As String, versionData As JObject)
+        VanillaName = versionName
+        VanillaData = versionData
+        VanillaIcon = Nothing
+        '清除已选加载器
+        SelectedOptiFine = Nothing : SelectedLiteLoader = Nothing : SelectedForge = Nothing
+        SelectedNeoForge = Nothing : SelectedFabric = Nothing : SelectedFabricApi = Nothing
+        SelectedOptiFabric = Nothing
+        IsSelectNameEdited = False
+        '启动 Forge 加载
+        If McVersion.IsFormatFit(VanillaName) Then
+            Dim ForgeLoader = New LoaderTask(Of String, List(Of DlForgeVersionEntry))("DlForgeVersion " & VanillaName, AddressOf DlForgeVersionMain)
+            LoadForge.State = ForgeLoader
+            ForgeLoader.Start(VanillaName)
+        End If
+        '启动 Fabric API、OptiFabric 加载
+        DlFabricApiLoader.Start()
+        DlOptiFabricLoader.Start()
+        ReloadSelected()
     End Sub
 
 #End Region
@@ -470,6 +520,11 @@ Public Class PageDownloadInstall
                 {"正式版", New List(Of JObject)}, {"预览版", New List(Of JObject)}, {"远古版", New List(Of JObject)}, {"愚人节版", New List(Of JObject)}
             }
             Dim Versions As JArray = DlClientListLoader.Output.Value("versions")
+            '填充加载器子页的 MC 版本下拉
+            ComboVersion.Items.Clear()
+            For Each Version As JObject In Versions
+                ComboVersion.Items.Add(New MyComboBoxItem With {.Content = Version("id").ToString, .Tag = Version})
+            Next
             For Each Version As JObject In Versions
                 '确定分类
                 Dim Type As String = Version("type")

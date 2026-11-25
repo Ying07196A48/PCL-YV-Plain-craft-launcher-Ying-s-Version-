@@ -8,14 +8,6 @@
         <Grid Name="PanAllBack">
             <local:MyScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" x:Name="PanBack">
                 <Grid Margin="25,10,25,25" Name="PanInner">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,12" x:Name="PanTabs">
-                        <local:MyListItem x:Name="TabVanilla" Type="RadioBox" Checked="True" IsScaleAnimationEnabled="False" MinPaddingRight="35" Height="36" Title="原版游戏" Margin="0,0,12,0" />
-                        <local:MyListItem x:Name="TabLoader" Type="RadioBox" IsScaleAnimationEnabled="False" MinPaddingRight="35" Height="36" Title="加载器 · API" />
-                    </StackPanel>
                     <StackPanel Grid.Row="1" Name="PanMinecraft" Grid.IsSharedSizeScope="True" Margin="0,0,0,-10">
                         <StackPanel.RenderTransform>
                             <TranslateTransform />
@@ -31,14 +23,6 @@
                             <local:MyImage x:Name="ImgLogo" Margin="52,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="32" RenderOptions.BitmapScalingMode="HighQuality" />
                             <local:MyTextBox Margin="93,0,16,0" Padding="-1,0" MinHeight="30" FontSize="15" VerticalAlignment="Center" x:Name="TextSelectName" MaxLength="70" HasBackground="False" />
                         </local:MyCard>
-                        <Grid Margin="0,12,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="MC 版本" VerticalAlignment="Center" Margin="0,0,15,0" FontSize="13" />
-                            <local:MyComboBox Grid.Column="1" x:Name="ComboVersion" MinHeight="32" />
-                        </Grid>
                         <local:MyHint Text="如果不安装 Fabric API，大多数 Mod 都会无法使用！" Margin="0,10,0,0" x:Name="HintFabricAPI" Theme="Red" />
                         <local:MyHint Text="必须安装 OptiFabric 才能正常使用 OptiFine！" Margin="0,10,0,0" x:Name="HintOptiFabric" Theme="Red" />
                         <local:MyHint Text="安装结束后，请在 Mod 下载中搜索 OptiFabric Origins 并下载，否则 OptiFine 会无法使用！" Margin="0,10,0,0" x:Name="HintOptiFabricOld" Theme="Yellow" />
